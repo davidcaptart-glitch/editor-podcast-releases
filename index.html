@@ -66,7 +66,7 @@
           <svg class="ic" viewBox="0 0 24 24"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
           Descargar gratis para Windows
         </a>
-        <a class="btn btn-ghost btn-lg" href="#funciones">Ver qué hace</a>
+        <a class="btn btn-ghost btn-lg" href="#video"><svg class="ic" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></svg> Verlo en 30 segundos</a>
       </div>
       <ul class="hero-notes rise" style="--d:.36s">
         <li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg> <span data-version>Última versión</span></li>
@@ -79,37 +79,33 @@
       <img class="hero-logo" src="assets/logo.webp" alt="Logotipo de Pod KST Editor: las letras P y K de metal forjado con un micrófono de estudio" width="900" height="900">
     </div>
   </div>
+</section>
 
-  <!-- Maqueta ilustrativa del editor -->
-  <div class="wrap">
-    <figure class="mock reveal" aria-label="Ilustración del editor: el programa, las cámaras y la línea de tiempo">
-      <div class="mock-bar">
-        <span class="dots"><i></i><i></i><i></i></span>
-        <span class="mock-title">Episodio 42 · Pod KST Editor</span>
-        <span class="modes"><b>Podcast</b><span>Edición</span><span>Efectos</span><span>Sonido</span></span>
-      </div>
-      <div class="mock-body">
-        <div class="monitor">
-          <div class="program" id="program" data-cam="2">
-            <span class="tag">PROGRAMA</span>
-            <span class="tc" id="tc">00:12:41</span>
-            <svg class="person" viewBox="0 0 120 90" aria-hidden="true"><circle cx="60" cy="34" r="15"/><path d="M26 90c2-22 16-32 34-32s32 10 34 32z"/></svg>
-            <span class="sub" id="sub">…y ahí fue cuando decidimos grabarlo con tres cámaras.</span>
-          </div>
-          <div class="cams" id="cams">
-            <div class="cam" data-cam="0"><svg class="person" viewBox="0 0 120 90"><circle cx="60" cy="34" r="15"/><path d="M26 90c2-22 16-32 34-32s32 10 34 32z"/></svg><span>1 · Dani</span></div>
-            <div class="cam" data-cam="1"><svg class="person" viewBox="0 0 120 90"><circle cx="60" cy="34" r="15"/><path d="M26 90c2-22 16-32 34-32s32 10 34 32z"/></svg><span>2 · Marta</span></div>
-            <div class="cam" data-cam="2"><svg class="person two" viewBox="0 0 120 90"><circle cx="38" cy="40" r="10"/><path d="M16 90c1-16 10-24 22-24s21 8 22 24z"/><circle cx="82" cy="40" r="10"/><path d="M60 90c1-16 10-24 22-24s21 8 22 24z"/></svg><span>3 · General</span></div>
-          </div>
-        </div>
-        <div class="tl">
-          <div class="tl-row"><span class="tl-name">Vídeo</span><div class="tl-track" id="track"></div></div>
-          <div class="tl-row"><span class="tl-name">Marcas</span><div class="tl-track marks"><i style="left:6%">Intro</i><i style="left:34%" class="blue">Capítulo</i><i style="left:58%">Anuncio</i><i style="left:81%" class="blue">Capítulo</i></div></div>
-          <div class="tl-row"><span class="tl-name">Sonido</span><div class="tl-track wave" id="wave"></div></div>
-          <div class="playhead" id="playhead"></div>
-        </div>
-      </div>
-    </figure>
+<!-- ── Vídeo ───────────────────────────────────────────── -->
+<section class="section" id="video">
+  <div class="wrap video-grid">
+    <div class="phone reveal">
+      <video id="demo" src="assets/pod-kst-editor-30s.mp4" poster="assets/video-poster.jpg"
+             width="720" height="1280" muted loop playsinline preload="metadata"
+             aria-label="Vídeo de 30 segundos: qué hace Pod KST Editor"></video>
+      <button class="sound" id="sound" type="button" aria-pressed="false">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="on" d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/><path class="off" d="M17 9.5l5 5m0-5l-5 5"/></svg>
+        <span>Activar sonido</span>
+      </button>
+    </div>
+    <div class="video-text reveal">
+      <div class="badge">En 30 segundos</div>
+      <h2>Tú grabas. <span class="grad">Pod KST lo edita.</span></h2>
+      <p>Esto es lo que hace con tu grabación, paso a paso. Pulsa un paso para ir a ese momento del vídeo.</p>
+      <ol class="chapters" id="chapters">
+        <li><button type="button" data-t="3"><b>01</b>Sincroniza cámaras y audio</button></li>
+        <li><button type="button" data-t="7"><b>02</b>Cambia de plano según quién habla</button></li>
+        <li><button type="button" data-t="13.5"><b>03</b>Voz clara, sin ruido</button></li>
+        <li><button type="button" data-t="17.6"><b>04</b>Mismo color y tu logo</button></li>
+        <li><button type="button" data-t="20.5"><b>05</b>Subtítulos en 5 idiomas</button></li>
+        <li><button type="button" data-t="24.5"><b>06</b>Y además: capítulos y Shorts</button></li>
+      </ol>
+    </div>
   </div>
 </section>
 
