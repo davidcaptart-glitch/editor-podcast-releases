@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pod KST Editor — Editor de podcast multicámara gratis para Windows</title>
+<meta name="description" content="Pod KST Editor monta tu podcast multicámara solo: sincroniza las cámaras por el sonido, corta a quien habla, arregla el audio y genera subtítulos, capítulos y Shorts. Gratis, para Windows.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pod KST Editor — Tu podcast multicámara, montado solo">
+<meta property="og:description" content="Sincroniza cámaras, corta a quien habla, arregla el audio y deja el vídeo listo para YouTube. Gratis, para Windows.">
+<meta property="og:image" content="assets/og.jpg">
+<meta name="theme-color" content="#050506">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ── Barra de navegación ─────────────────────────────── -->
+<header class="nav" id="nav">
+  <a class="brand" href="#inicio" aria-label="Pod KST Editor, inicio">
+    <img src="assets/favicon.png" alt="" width="34" height="34">
+    <span>POD <b>KST</b> EDITOR</span>
+  </a>
+  <nav class="nav-links" aria-label="Secciones">
+    <a href="#funciones">Funciones</a>
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#artcraft">Modos</a>
+    <a href="#gratis">Gratis</a>
+    <a href="#dudas">Dudas</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <a class="btn btn-brand btn-sm" href="https://github.com/davidcaptart-glitch/editor-podcast-releases/releases/latest" data-download>
+    <svg class="ic" viewBox="0 0 24 24"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
+    Descargar
+  </a>
+</header>
+
+<main id="inicio">
+
+<!-- ── Portada ─────────────────────────────────────────── -->
+<section class="hero">
+  <div class="orb orb-amber" aria-hidden="true"></div>
+  <div class="orb orb-blue" aria-hidden="true"></div>
+  <div class="dot-grid" aria-hidden="true"></div>
+
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <div class="badge rise" style="--d:.05s">
+        <span class="pulse"></span> Gratis · Windows 10 y 11
+      </div>
+      <h1 class="rise" style="--d:.12s">
+        Tu podcast multicámara,<br>
+        <span class="grad">montado solo.</span><br>
+        Listo para YouTube.
+      </h1>
+      <p class="lead rise" style="--d:.2s">
+        Pod KST Editor sincroniza tus cámaras por el sonido, corta a quien habla en cada
+        momento, arregla el audio y genera subtítulos, capítulos y Shorts. Tú solo retocas
+        lo que quieras y exportas.
+      </p>
+      <div class="cta-row rise" style="--d:.28s">
+        <a class="btn btn-brand btn-lg" href="https://github.com/davidcaptart-glitch/editor-podcast-releases/releases/latest" data-download>
+          <svg class="ic" viewBox="0 0 24 24"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
+          Descargar gratis para Windows
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#funciones">Ver qué hace</a>
+      </div>
+      <ul class="hero-notes rise" style="--d:.36s">
+        <li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg> <span data-version>Última versión</span></li>
+        <li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg> Sin registro ni suscripción</li>
+        <li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg> Todo se procesa en tu ordenador</li>
+      </ul>
+    </div>
+
+    <div class="hero-art rise" style="--d:.2s">
+      <img class="hero-logo" src="assets/logo.webp" alt="Logotipo de Pod KST Editor: las letras P y K de metal forjado con un micrófono de estudio" width="900" height="900">
+    </div>
+  </div>
+
+  <!-- Maqueta ilustrativa del editor -->
+  <div class="wrap">
+    <figure class="mock reveal" aria-label="Ilustración del editor: el programa, las cámaras y la línea de tiempo">
+      <div class="mock-bar">
+        <span class="dots"><i></i><i></i><i></i></span>
+        <span class="mock-title">Episodio 42 · Pod KST Editor</span>
+        <span class="modes"><b>Podcast</b><span>Edición</span><span>Efectos</span><span>Sonido</span></span>
+      </div>
+      <div class="mock-body">
+        <div class="monitor">
+          <div class="program" id="program" data-cam="2">
+            <span class="tag">PROGRAMA</span>
+            <span class="tc" id="tc">00:12:41</span>
+            <svg class="person" viewBox="0 0 120 90" aria-hidden="true"><circle cx="60" cy="34" r="15"/><path d="M26 90c2-22 16-32 34-32s32 10 34 32z"/></svg>
+            <span class="sub" id="sub">…y ahí fue cuando decidimos grabarlo con tres cámaras.</span>
+          </div>
+          <div class="cams" id="cams">
+            <div class="cam" data-cam="0"><svg class="person" viewBox="0 0 120 90"><circle cx="60" cy="34" r="15"/><path d="M26 90c2-22 16-32 34-32s32 10 34 32z"/></svg><span>1 · Dani</span></div>
+            <div class="cam" data-cam="1"><svg class="person" viewBox="0 0 120 90"><circle cx="60" cy="34" r="15"/><path d="M26 90c2-22 16-32 34-32s32 10 34 32z"/></svg><span>2 · Marta</span></div>
+            <div class="cam" data-cam="2"><svg class="person two" viewBox="0 0 120 90"><circle cx="38" cy="40" r="10"/><path d="M16 90c1-16 10-24 22-24s21 8 22 24z"/><circle cx="82" cy="40" r="10"/><path d="M60 90c1-16 10-24 22-24s21 8 22 24z"/></svg><span>3 · General</span></div>
+          </div>
+        </div>
+        <div class="tl">
+          <div class="tl-row"><span class="tl-name">Vídeo</span><div class="tl-track" id="track"></div></div>
+          <div class="tl-row"><span class="tl-name">Marcas</span><div class="tl-track marks"><i style="left:6%">Intro</i><i style="left:34%" class="blue">Capítulo</i><i style="left:58%">Anuncio</i><i style="left:81%" class="blue">Capítulo</i></div></div>
+          <div class="tl-row"><span class="tl-name">Sonido</span><div class="tl-track wave" id="wave"></div></div>
+          <div class="playhead" id="playhead"></div>
+        </div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- ── Tira de capacidades ─────────────────────────────── -->
+<div class="strip" aria-hidden="true">
+  <div class="strip-run">
+    <span>Sincronía por audio</span><span>Multicámara automático</span><span>Reparación de sonido</span><span>Voz clara</span><span>Subtítulos en 5 idiomas</span><span>Capítulos de YouTube</span><span>Shorts verticales</span><span>Miniaturas</span><span>Color y LUT</span><span>Intro · anuncios · outro</span>
+    <span>Sincronía por audio</span><span>Multicámara automático</span><span>Reparación de sonido</span><span>Voz clara</span><span>Subtítulos en 5 idiomas</span><span>Capítulos de YouTube</span><span>Shorts verticales</span><span>Miniaturas</span><span>Color y LUT</span><span>Intro · anuncios · outro</span>
+  </div>
+</div>
+
+<!-- ── Funciones ───────────────────────────────────────── -->
+<section class="section" id="funciones">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="badge">Funciones</div>
+      <h2>Todo lo que tarda horas, <span class="grad">hecho en minutos</span></h2>
+      <p>Del material en bruto al vídeo publicado, sin saltar entre cinco programas.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 12h3l2-6 4 12 3-9 2 3h4"/></svg></div>
+        <h3>Sincronía por el sonido</h3>
+        <p>Suelta los archivos de cada cámara y de cada micro. El editor los alinea solo escuchando el audio, y corrige la deriva en grabaciones largas. Sin claqueta.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="M15 10l6-3v10l-6-3"/></svg></div>
+        <h3>Multicámara automático</h3>
+        <p>Detecta quién habla y corta a su cámara. En silencios y cuando se pisan, plano general. Funciona con las cámaras y micros que tengas: una, tres o seis.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></div>
+        <h3>El sonido, arreglado</h3>
+        <p>Si el audio principal tiene huecos o satura, coge el mejor trozo de otra fuente. «Voz clara» quita ruido y eco, y todo sale a −14 LUFS, el nivel de YouTube.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 14h4M13 14h4M7 10h2M11 10h6"/></svg></div>
+        <h3>Subtítulos en 5 idiomas</h3>
+        <p>Transcribe en español y traduce a catalán, euskera, gallego e inglés. La traducción funciona sin internet. Un .srt por idioma, listo para subir.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+        <h3>Shorts, capítulos y miniatura</h3>
+        <p>Propone capítulos para la descripción, recorta Shorts verticales encuadrando la cara de quien habla y prepara la miniatura con el título.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="18" cy="17" r="2"/></svg></div>
+        <h3>Retoca lo que quieras</h3>
+        <p>Reproductor en tiempo real y línea de tiempo: pulsa 1, 2, 3 para cortar de cámara como en una mesa de realización, arrastra los cortes, deshaz y rehaz.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 000 18M12 3c3 3 3 15 0 18"/></svg></div>
+        <h3>Tu estilo, guardado</h3>
+        <p>Intro, anuncios y outro, color con LUT, mosca con tu logo, rótulos con los nombres. Lo guardas como plantilla y cada episodio sale igual.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 16V4m0 0l-4 4m4-4l4 4M4 20h16"/></svg></div>
+        <h3>Directo a YouTube</h3>
+        <p>Sube el vídeo desde el editor con sus subtítulos y capítulos. Se publica como privado para que lo revises antes de que lo vea nadie.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg></div>
+        <h3>Cuatro modos, una ventana</h3>
+        <p>Podcast, Edición, Efectos y Sonido. Los tres últimos se basan en los programas de <a class="inline" href="#artcraft">ArtCraft</a> y están conectados entre sí.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── Cómo funciona ───────────────────────────────────── -->
+<section class="section alt" id="como-funciona">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="badge">Cómo funciona</div>
+      <h2>Tres pasos y <span class="grad">a publicar</span></h2>
+    </div>
+    <ol class="steps">
+      <li class="step reveal">
+        <span class="num">01</span>
+        <h3>Suelta el material</h3>
+        <p>Arrastra los vídeos de las cámaras y los audios de los micros. Dile una vez qué equipo tienes y lo recuerda para el siguiente episodio.</p>
+      </li>
+      <li class="step reveal">
+        <span class="num">02</span>
+        <h3>Pulsa «Hacerlo todo»</h3>
+        <p>El asistente sincroniza, decide los cortes, limpia el sonido, transcribe y te propone capítulos y momentos para Shorts. Tú revisas la propuesta.</p>
+      </li>
+      <li class="step reveal">
+        <span class="num">03</span>
+        <h3>Retoca y exporta</h3>
+        <p>Cambia un plano, mueve un corte, quita un trozo. Exporta con la tarjeta gráfica y súbelo a YouTube desde el propio editor.</p>
+      </li>
+    </ol>
+
+    <div class="stats reveal">
+      <div><b>0 €</b><span>para siempre</span></div>
+      <div><b>N</b><span>cámaras y micros</span></div>
+      <div><b>5</b><span>idiomas de subtítulos</span></div>
+      <div><b>−14</b><span>LUFS, nivel de YouTube</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ArtCraft ────────────────────────────────────────── -->
+<section class="section" id="artcraft">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="badge badge-blue">Cuatro modos · con ArtCraft dentro</div>
+      <h2>Lo mejor de nuestro editor, <span class="grad">con lo mejor de ArtCraft</span></h2>
+      <p>Pod KST Editor tiene cuatro modos. Podcast es nuestro; Edición, Efectos y Sonido se basan en los programas de
+        <a class="inline" href="https://getartcraft.com" target="_blank" rel="noopener">ArtCraft</a>,
+        software libre y totalmente gratuito, que vienen ya instalados y se abren dentro del editor.</p>
+    </div>
+
+    <div class="modes-row">
+      <article class="mode-card own reveal">
+        <span class="mode-n">Modo</span>
+        <h3>Podcast</h3>
+        <span class="based own">Nuestro editor</span>
+        <p>Sincroniza las cámaras, corta a quien habla, trata el sonido y genera subtítulos, capítulos y Shorts. Es el punto de partida del episodio.</p>
+      </article>
+      <article class="mode-card reveal">
+        <span class="mode-n">Modo</span>
+        <h3>Edición</h3>
+        <a class="based" href="https://getartcraft.com/apps/filmcraft" target="_blank" rel="noopener">Basado en FilmCraft, de ArtCraft ↗</a>
+        <p>Editor de vídeo completo: montaje, color, sonido y títulos. Abre el montaje del podcast tal cual sale del modo Podcast.</p>
+      </article>
+      <article class="mode-card reveal">
+        <span class="mode-n">Modo</span>
+        <h3>Efectos</h3>
+        <a class="based" href="https://getartcraft.com/apps/effectcraft" target="_blank" rel="noopener">Basado en EffectCraft, de ArtCraft ↗</a>
+        <p>Rótulos, intros animadas y cientos de efectos, diseñados sobre la imagen de tu episodio.</p>
+      </article>
+      <article class="mode-card reveal">
+        <span class="mode-n">Modo</span>
+        <h3>Sonido</h3>
+        <a class="based" href="https://getartcraft.com/apps/soundcraft" target="_blank" rel="noopener">Basado en SoundCraft, de ArtCraft ↗</a>
+        <p>Estación de audio para mezclar las pistas de cada micro como en un estudio.</p>
+      </article>
+    </div>
+
+    <div class="linked reveal">
+      <div class="linked-head">
+        <h3>Totalmente <span class="grad">interconectados</span></h3>
+        <p>No son cuatro programas sueltos: los cuatro modos trabajan sobre el mismo episodio, dentro de la misma ventana, y lo que haces en uno llega a los demás.</p>
+      </div>
+      <ul class="flows">
+        <li><span class="flow"><b>Podcast</b><i>→</i><b>Edición</b></span>El montaje automático, con todas las cámaras y los cortes, se abre en Edición para afinarlo a mano.</li>
+        <li><span class="flow"><b>Podcast</b><i>→</i><b>Sonido</b></span>Las pistas de cada micro llegan a Sonido ya sincronizadas.</li>
+        <li><span class="flow"><b>Sonido</b><i>→</i><b>Podcast</b></span>La mezcla que haces vuelve como sonido final del episodio.</li>
+        <li><span class="flow"><b>Efectos</b><i>→</i><b>Podcast</b></span>Los rótulos y gráficos se ponen encima del vídeo, en el instante que elijas.</li>
+        <li><span class="flow"><b>Edición</b><i>→</i><b>Efectos · Sonido</b></span>Lo que editas pasa a Efectos y a Sonido para seguir con ello, sin volver a elegirlo.</li>
+        <li><span class="flow"><b>Un interruptor</b></span>Cambias de modo desde la esquina de la ventana o con Ctrl+E, sin cerrar nada.</li>
+      </ul>
+    </div>
+
+    <div class="pledge reveal">
+      <h3>Sin cobrar y sin aprovecharnos de nadie</h3>
+      <p>ArtCraft es gratuito y aquí lo sigue siendo: no cobramos por ello ni pretendemos
+        aprovecharnos del trabajo de nadie. Solo queremos darle al podcast una dimensión
+        nueva de edición, uniendo lo que mejor hace nuestro editor (sincronizar, cortar a quien
+        habla, subtítulos) con lo mejor de la edición de vídeo, los efectos y el sonido de ArtCraft.</p>
+      <p class="pledge-note"><a class="inline" href="https://getartcraft.com/apps/filmcraft" target="_blank" rel="noopener">FilmCraft</a>, <a class="inline" href="https://getartcraft.com/apps/effectcraft" target="_blank" rel="noopener">EffectCraft</a> y <a class="inline" href="https://getartcraft.com/apps/soundcraft" target="_blank" rel="noopener">SoundCraft</a> son obra de ArtCraft, publicados con licencias MIT y Apache-2.0.
+        Se incluyen sin modificar, desde sus publicaciones oficiales. Todo el mérito de esos programas es suyo.
+        <a class="inline" href="https://getartcraft.com" target="_blank" rel="noopener">Conoce ArtCraft →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Gratis / descarga ───────────────────────────────── -->
+<section class="section alt" id="gratis">
+  <div class="wrap">
+    <div class="free reveal">
+      <div class="free-glow" aria-hidden="true"></div>
+      <div class="free-text">
+        <div class="badge">Gratis</div>
+        <h2>Descárgalo y <span class="grad">úsalo hoy</span></h2>
+        <p>Pod KST Editor es gratuito. Sin planes, sin cuenta y sin límite de episodios.
+          Un instalador para Windows con todo dentro; no hay que instalar nada más.</p>
+        <ul class="checks">
+          <li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg> Instalador único, con ffmpeg y las herramientas incluidas</li>
+          <li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg> Se actualiza solo cuando sale una versión nueva</li>
+          <li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg> Tus vídeos se quedan en tu ordenador</li>
+          <li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg> Usa la tarjeta gráfica para exportar más rápido</li>
+        </ul>
+      </div>
+      <div class="free-box">
+        <div class="price">0 €</div>
+        <div class="price-sub">Gratis, completo</div>
+        <a class="btn btn-brand btn-lg btn-block" href="https://github.com/davidcaptart-glitch/editor-podcast-releases/releases/latest" data-download>
+          <svg class="ic" viewBox="0 0 24 24"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
+          Descargar para Windows
+        </a>
+        <div class="meta" data-meta>Windows 10 y 11 · 64 bits</div>
+        <a class="link" href="https://github.com/davidcaptart-glitch/editor-podcast-releases/releases">Todas las versiones y novedades →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Dudas ───────────────────────────────────────────── -->
+<section class="section" id="dudas">
+  <div class="wrap narrow">
+    <div class="head reveal">
+      <div class="badge">Dudas</div>
+      <h2>Preguntas frecuentes</h2>
+    </div>
+    <div class="faq reveal">
+      <details open>
+        <summary>¿Es gratis de verdad?</summary>
+        <p>Sí. Se descarga y se usa completo, sin cuenta, sin suscripción y sin límite de episodios.</p>
+      </details>
+      <details>
+        <summary>¿Qué necesito para usarlo?</summary>
+        <p>Un ordenador con Windows 10 u 11 de 64 bits y las grabaciones de tu podcast: los vídeos de las cámaras y, si los tienes, los audios de los micros. Con tarjeta gráfica exporta más rápido, pero no es obligatoria.</p>
+      </details>
+      <details>
+        <summary>¿Mis vídeos se suben a algún sitio?</summary>
+        <p>No. La sincronía, los cortes, el sonido, la transcripción y la traducción se hacen en tu ordenador. Solo sale algo si tú lo pides: al subir el vídeo a tu canal de YouTube.</p>
+      </details>
+      <details>
+        <summary>¿Sirve si solo tengo una cámara, o si tengo cinco?</summary>
+        <p>Sí. Defines tu equipo una vez (las cámaras y micros que tengas y a quién graba cada uno) y el editor se adapta. Puedes guardar varios equipos.</p>
+      </details>
+      <details>
+        <summary>¿Cómo se actualiza?</summary>
+        <p>Al abrirlo avisa si hay versión nueva y la instala él solo. Tus ajustes, plantillas y proyectos se conservan.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contacto ────────────────────────────────────────── -->
+<section class="section alt" id="contacto">
+  <div class="wrap contact">
+    <div class="contact-text reveal">
+      <div class="badge">Contacto</div>
+      <h2>¿Una duda, un fallo, <span class="grad">una idea?</span></h2>
+      <p>Escríbeme. Leo todos los mensajes: si algo no funciona con tu material o echas
+        en falta una función, cuéntamelo y lo miro.</p>
+    </div>
+    <form class="form reveal" id="contact-form" novalidate>
+      <div class="row">
+        <label>Nombre
+          <input type="text" name="name" autocomplete="name" required maxlength="80">
+        </label>
+        <label>Correo
+          <input type="email" name="email" autocomplete="email" required maxlength="120">
+        </label>
+      </div>
+      <label>Mensaje
+        <textarea name="message" rows="5" required maxlength="4000"></textarea>
+      </label>
+      <!-- Trampa para robots: las personas no la ven -->
+      <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="form-foot">
+        <button class="btn btn-brand" type="submit">Enviar mensaje</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <a class="brand" href="#inicio">
+      <img src="assets/favicon.png" alt="" width="28" height="28">
+      <span>POD <b>KST</b> EDITOR</span>
+    </a>
+    <nav aria-label="Pie">
+      <a href="#funciones">Funciones</a>
+      <a href="#gratis">Descargar</a>
+      <a href="#contacto">Contacto</a>
+      <a href="https://github.com/davidcaptart-glitch/editor-podcast-releases/releases">Versiones</a>
+      <a href="https://getartcraft.com" target="_blank" rel="noopener">ArtCraft</a>
+    </nav>
+    <small>© <span id="year">2026</span> Pod KST Editor · Gratis · Edición, efectos y sonido por ArtCraft</small>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
