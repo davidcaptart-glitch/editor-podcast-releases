@@ -4,11 +4,9 @@
 
   // ── Ajustes ────────────────────────────────────────────
   var RELEASES_REPO = 'davidcaptart-glitch/editor-podcast-releases';
-  // Formulario de contacto: FormSubmit reenvía los mensajes al correo.
-  // Tras activar el formulario (primer mensaje), FormSubmit da un alias
-  // aleatorio: ponerlo aquí en lugar de la dirección para no enseñarla.
-  var FORM_TO = ['da.vid.captart', 'gmail.com'].join('@');
-  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/' + FORM_TO;
+  // Formulario de contacto: FormSubmit reenvía los mensajes al correo. Se usa el alias
+  // que da FormSubmit al activar el formulario, para no enseñar la dirección.
+  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/da34c382ff3aa01dd5fcaa4dfa1d2c6b';
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function $(s) { return document.querySelector(s); }
